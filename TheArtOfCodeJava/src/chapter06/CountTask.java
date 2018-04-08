@@ -54,9 +54,10 @@ public class CountTask extends RecursiveTask<Integer> {
     }
 
     public static void main(String[] args) {
+    	long t1 = System.nanoTime();
         ForkJoinPool forkJoinPool = new ForkJoinPool();
         // 生成一个计算任务，负责计算1+2+3+4
-        CountTask task = new CountTask(1, 4);
+        CountTask task = new CountTask(1,40000000);
         // 执行一个任务
         Future<Integer> result = forkJoinPool.submit(task);
         try {
@@ -64,6 +65,16 @@ public class CountTask extends RecursiveTask<Integer> {
         } catch (InterruptedException e) {
         } catch (ExecutionException e) {
         }
+        long t2 = System.nanoTime();
+        System.out.println(t2-t1);
+        long t3 = System.nanoTime();
+    	int sum = 0;
+    	for(int i=0;i<40000000;i++) {
+    		sum = sum+i;
+    	}
+    	System.out.println(sum);
+    	long t4 = System.nanoTime();
+        System.out.println(t4-t3);
     }
 
 }
