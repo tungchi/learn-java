@@ -11,6 +11,7 @@ public class JoinCountDownLatchTest {
         Thread parser1 = new Thread(new Runnable() {
             @Override
             public void run() {
+                System.out.println("parser1 finish");
             }
         });
 
