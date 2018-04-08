@@ -14,6 +14,16 @@ public class AtomicIntegerTest {
     public static void main(String[] args) {
         System.out.println(ai.getAndIncrement());
         System.out.println(ai.get());
+        System.out.println(ints[2]);
+        ints[2] = 5;
+        System.out.println(ints[2]);
+        System.out.println(str);
+//        str="adf";
+//        System.out.println(str);
     }
+    
+    //数组用final修饰毫无意义
+    public static final int[] ints = new int[5];
+    public static final String str = "hahha";
 
 }
